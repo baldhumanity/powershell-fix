@@ -1,0 +1,12 @@
+# powershell-fix bundle patch: mounted once at the HOST layer of the profile,
+# so the powershell_fix tool and its prompt section are available to every
+# session on this profile — no agent-preset line required.
+#
+# `name` is the bare package name, resolved from the profile's node_modules
+# (the host base). The plugin injects `tools` / `shell` / `systemPrompt` /
+# `shellEnv`, all host-plane services; it provides nothing, so it needs no
+# isolate realm.
+
+- insert:
+    - id: powershell-fix
+      name: powershell-fix

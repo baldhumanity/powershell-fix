@@ -1,0 +1,47 @@
+{
+  "name": "powershell-fix",
+  "description": "DeepSeek Harness (DSH) host-layer plugin: detects and auto-fixes Windows PowerShell command syntax mistakes — bash constructs, broken line continuations, pasted prompts, CRLF pollution — then executes the corrected command through the host shell seam under the normal sandbox/approval policy",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./fixer": "./lib/fixer.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "powershell",
+    "shell",
+    "syntax-checker",
+    "auto-fix"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuTianshuo/powershell-fix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuTianshuo/powershell-fix/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  }
+}
